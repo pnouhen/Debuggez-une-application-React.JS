@@ -1,5 +1,3 @@
-Slider : defiler : image blanche, défilement du plus ancien au plus récent
-
 Catégories : ne marche pas, liste pour de mois
 
 formulaire de contact : mettre un message pour de confirmation
