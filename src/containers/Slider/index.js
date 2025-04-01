@@ -7,22 +7,21 @@ import "./style.scss";
 const Slider = () => {
   const { data } = useData();
   const [index, setIndex] = useState(0);
-  const byDateDesc = data?.focus
-  ? [...data.focus].sort((evtA, evtB) => 
-      new Date(evtA.date) < new Date(evtB.date) ? -1 : 1
-    )
-  : [];
+  const byDateDesc = data?.focus.sort((evtA, evtB) =>
+    new Date(evtA.date) < new Date(evtB.date) ? -1 : 1
+  );
 
-// Passer à la carte suivante
-const nextCard = () => {
-  setIndex((prevIndex) => (prevIndex + 1) % byDateDesc.length);  // Incrémentation correcte de l'index
-};
+  // Passer à la carte suivante
+  const nextCard = () => {
+    setTimeout(
+      () => setIndex(index < byDateDesc.length - 1 ? index + 1 : 0),
+      5000
+    );
+  };
 
-useEffect(() => {
-  const interval = setInterval(nextCard, 5000);  // Utilisation d'un intervalle pour changer l'index
-  return () => clearInterval(interval);  // Nettoyage de l'intervalle lors du démontage
-}, [index, byDateDesc.length]); // La dépendance à index permet de changer d'index régulièrement
-
+  useEffect(() => {
+    nextCard();
+  });
   return (
     <div className="SlideCardList">
       {byDateDesc?.map((event, idx) => (
