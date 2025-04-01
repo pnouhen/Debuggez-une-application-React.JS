@@ -1,5 +1,4 @@
-Catégories : ne marche pas, liste pour de mois
 
-formulaire de contact : mettre un message pour de confirmation
+formulaire de contact : afficher le message d'envoi
 
 footer : image s'affiche
