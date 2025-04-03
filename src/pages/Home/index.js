@@ -18,7 +18,6 @@ const Page = () => {
     new Date(evtA.date) > new Date(evtB.date) ? -1 : 1
 );
   console.log("Data via last", last)
-  console.log("Data via last", last[0])
   return <>
     <header>
       <Menu />
@@ -121,13 +120,18 @@ const Page = () => {
     <footer className="row">
       <div className="col presta">
         <h3>Notre derniére prestation</h3>
-        <EventCard
+        {last ? (
+          <EventCard       
           imageSrc={last[0]?.cover}
           title={last[0]?.title}
           date={new Date(last[0]?.date)}
           small
           label="boom"
         />
+        ) : (
+          <p>Chargement en cours...</p>
+        )}
+        
       </div>
       <div className="col contact">
         <h3>Contactez-nous</h3>
