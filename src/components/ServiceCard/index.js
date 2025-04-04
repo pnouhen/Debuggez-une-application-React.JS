@@ -13,12 +13,8 @@ const ServiceCard = ({ imageSrc, imageAlt, children }) => (
 
 ServiceCard.propTypes = {
   imageSrc: PropTypes.string.isRequired,
-  imageAlt: PropTypes.string,
+  imageAlt: PropTypes.string, // eslint-disable-line react/require-default-props
   children: PropTypes.node.isRequired,
 };
-
-ServiceCard.defaultProps = {
-  imageAlt: "image"
-}
 
 export default ServiceCard;

@@ -5,7 +5,7 @@ import "./style.scss";
 
 const EventCard = ({
   imageSrc,
-  imageAlt,
+  imageAlt = "image",
   date = new Date(),
   title,
   label,
@@ -30,16 +30,11 @@ const EventCard = ({
 
 EventCard.propTypes = {
   imageSrc: PropTypes.string.isRequired,
-  imageAlt: PropTypes.string,
+  imageAlt: PropTypes.string, // eslint-disable-line react/require-default-props
   date: PropTypes.instanceOf(Date).isRequired,
   title: PropTypes.string.isRequired,
-  small: PropTypes.bool,
+  small: PropTypes.bool, // eslint-disable-line react/require-default-props
   label: PropTypes.string.isRequired,
 };
-
-EventCard.defaultProps = {
-  imageAlt: "image",
-  small: false,
-}
 
 export default EventCard;

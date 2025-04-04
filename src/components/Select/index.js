@@ -7,18 +7,18 @@ import "./style.scss";
 
 const Select = ({
   selection,
-  onChange,
-  name,
-  titleEmpty,
-  label,
+  onChange = () => null,
+  name = "select",
+  titleEmpty = false,
+  label = "",
   type = "normal",
 }) => {
   const [value, setValue] = useState();
   const [collapsed, setCollapsed] = useState(true);
   const changeValue = (newValue) => {
     onChange(newValue); // Passer la valeur au parent
-  setValue(newValue);
-  setCollapsed(true); // Fermer le menu après sélection
+    setValue(newValue);
+    setCollapsed(true); // Fermer le menu après sélection
   };
   return (
     <div className={`SelectContainer ${type}`} data-testid="select-testid">
@@ -83,19 +83,11 @@ const Arrow = () => (
 
 Select.propTypes = {
   selection: PropTypes.arrayOf(PropTypes.string).isRequired,
-  onChange: PropTypes.func,
-  name: PropTypes.string,
-  titleEmpty: PropTypes.bool,
-  label: PropTypes.string,
-  type: PropTypes.string,
-}
-
-Select.defaultProps = {
-  onChange: () => null,
-  titleEmpty: false,
-  label: "",
-  type: "normal",
-  name: "select",
-}
+  onChange: PropTypes.func, // eslint-disable-line react/require-default-props
+  name: PropTypes.string, // eslint-disable-line react/require-default-props
+  titleEmpty: PropTypes.bool, // eslint-disable-line react/require-default-props
+  label: PropTypes.string, // eslint-disable-line react/require-default-props
+  type: PropTypes.string, // eslint-disable-line react/require-default-props
+};
 
 export default Select;
